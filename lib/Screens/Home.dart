@@ -33,26 +33,27 @@ class _HomeState extends State<Home> {
   Widget _buildFloatingButton() {
     return FloatingActionButton(
       onPressed: null,
-      child: Icon(Icons.add, size: 30.0, color: Colors.black,),
-      backgroundColor: Colors.white70,
+      child: Icon(Icons.add, size: 30.0, color: Colors.white,),
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
     );
   }
   Widget _buildBottomAppBar() {
     return Container(
       height: 55.0,
       child: BottomAppBar(
-        color: Color.fromRGBO(58, 66, 86, 1.0),
+        color: Colors.grey[300],
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             IconButton(
               iconSize: 30.0,
-              icon: Icon(Icons.wb_incandescent, color: Colors.white),
+              //icon: Icon(Icons.wb_incandescent, color: Colors.white),
+              icon: ImageIcon(AssetImage("assets/icons/idea.png")),
               onPressed: () {},
             ),
             IconButton(
               iconSize: 30.0,
-              icon: Icon(Icons.report, color: Colors.white),
+              icon: ImageIcon(AssetImage("assets/icons/checklist.png")),
               onPressed: () {},
             )
           ],
