@@ -6,6 +6,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List _listIdeas = ["Text 1", "Text 2", "Text 3"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +22,21 @@ class _HomeState extends State<Home> {
       floatingActionButton: _buildFloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomAppBar(),
-      body: Container(
-        padding: EdgeInsets.only(top: 5.0),
-        child: Column(
-          children: <Widget>[
-
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+              child: ListView.builder(
+                  padding: EdgeInsets.all(12.0),
+                  itemCount: _listIdeas.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(_listIdeas[index]),
+                      subtitle: Text("just some ideas"),
+                    );
+                  }
+              )
+          )
+        ],
       )
     );
   }
