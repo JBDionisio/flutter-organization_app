@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organization_app/screens/popups/ideasList.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -30,8 +31,11 @@ class _HomeState extends State<Home> {
                   itemCount: _listIdeas.length,
                   itemBuilder: (context, index) {
                     return ListTile(
+                      leading: CircleAvatar(child: Icon(Icons.directions_bike)),
+                      //title: Text(_listIdeas[index]["title"]),
+                      //subtitle: Text("  ${_listIdeas[index]["subtitle"]}"),
                       title: Text(_listIdeas[index]),
-                      subtitle: Text("just some ideas"),
+                      subtitle: Text("  Just a aleatory text"),
                     );
                   }
               )
@@ -41,9 +45,18 @@ class _HomeState extends State<Home> {
     );
   }
 
+  void _openAddNewIdea() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new IdeasList();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
   Widget _buildFloatingButton() {
     return FloatingActionButton(
-      onPressed: null,
+      onPressed: _openAddNewIdea,
       child: Icon(Icons.add, size: 30.0, color: Colors.white,),
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
     );
@@ -58,7 +71,6 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             IconButton(
               iconSize: 30.0,
-              //icon: Icon(Icons.wb_incandescent, color: Colors.white),
               icon: ImageIcon(AssetImage("assets/icons/idea.png")),
               onPressed: () {},
             ),
