@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
               iconSize: 30.0,
               icon: ImageIcon(AssetImage("assets/icons/checklist.png")),
               onPressed: () {},
-            )
+            ),
           ],
         ),
       ),
