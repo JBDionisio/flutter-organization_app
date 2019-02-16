@@ -27,7 +27,111 @@ class _IdeasListState extends State<IdeasList> {
                       .copyWith(color: Colors.white))),
         ],
       ),
-      body: new Text("just a text"),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                new Container(
+                  height: 60.0,
+                  padding: EdgeInsets.only(left: 19.8, right:19.8),
+                  child: _icons(),
+                )
+              ],
+            ),
+            new Stack(
+              children: <Widget>[
+                new Container(
+                  height: 60.0,
+                  padding: EdgeInsets.only(left: 19.8, right:19.8),
+                  child: _colors(),
+                )
+              ],
+            )
+          ],
+        ),
+      )
     );
   }
+
+  Widget _icons() {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        CircleAvatar(
+            child: Icon(Icons.build)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.wb_incandescent)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.laptop_mac)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.alarm)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.call)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.home)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.audiotrack)
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+            child: Icon(Icons.done_all)
+        ),
+        SizedBox(width: 7.0,),
+      ],
+    );
+  }
+  Widget _colors() {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        CircleAvatar(
+            backgroundColor: Colors.blue,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.black,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.tealAccent,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.deepPurple,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.amber,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.lightGreenAccent,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.red,
+        ),
+        SizedBox(width: 7.0,),
+        CircleAvatar(
+          backgroundColor: Colors.blueAccent,
+        ),
+      ],
+    );
+  }
+
 }
