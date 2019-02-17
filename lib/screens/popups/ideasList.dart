@@ -10,13 +10,13 @@ class _IdeasListState extends State<IdeasList> {
   Color _color = Colors.blue[700];
   IconData _icon = Icons.wb_incandescent;
 
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: const Text('New Idea'),
-        backgroundColor: Color.fromRGBO(59, 82, 122, 1.0),
+        title: const Text('NEW IDEA',),
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+        centerTitle: true,
         actions: [
           new FlatButton(
               onPressed: () {
@@ -29,48 +29,93 @@ class _IdeasListState extends State<IdeasList> {
                       .of(context)
                       .textTheme
                       .subhead
-                      .copyWith(color: Colors.white))),
+                      .copyWith(color: _color))),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Container(
-              padding: EdgeInsets.only(left: 40.0, right:40.0, bottom: 20.0),
-              //color: Colors.black,
-              child: Center(
-                child: CircleAvatar(
-                  radius: 30.0,
-                  backgroundColor: _color,
-                  child: Icon(_icon,
-                      size: 35.0, color: Colors.white),
+      resizeToAvoidBottomPadding: true,
+      body: ListView(
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Container(
+                padding: EdgeInsets.only(left: 40.0, right:40.0,
+                    bottom: 20.0, top: 50.0),
+                //color: Colors.black,
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 30.0,
+                    backgroundColor: _color,
+                    child: Icon(_icon,
+                        size: 35.0, color: Colors.white),
+                  ),
                 ),
+
+              ),
+              new Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  new Container(
+                    height: 60.0,
+                    padding: EdgeInsets.only(left: 20.0, right:16.0),
+                    child: _icons(),
+                  )
+                ],
+              ),
+              new Stack(
+                children: <Widget>[
+                  new Container(
+                    height: 60.0,
+                    padding: EdgeInsets.only(left: 20.0, right:16.0),
+                    child: _colors(),
+                  )
+                ],
               ),
 
-            ),
-            new Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                new Container(
-                  height: 60.0,
-                  padding: EdgeInsets.only(left: 20.0, right:16.0),
-                  child: _icons(),
-                )
-              ],
-            ),
-            new Stack(
-              children: <Widget>[
-                new Container(
-                  height: 60.0,
-                  padding: EdgeInsets.only(left: 20.0, right:16.0),
-                  child: _colors(),
-                )
-              ],
-            ),
+              Container(
+                padding: EdgeInsets.only(left: 20.0, right: 16.0,
+                    top: 20.0, bottom: 20.0),
+                child: Theme(
+                    data: new ThemeData(
+                    primaryColor: _color,
+                  ),
+                    child: TextFormField(
+                      style: TextStyle(fontSize: 18.0, color: Colors.black),
+                      textCapitalization: TextCapitalization.sentences,
+                      decoration: InputDecoration(
+                          labelText: "TITLE",
+                          border: OutlineInputBorder(),
+                          hintStyle: TextStyle(color: Colors.deepPurple)
 
-          ],
-        ),
+                      ),
+                    ),
+                  )
+
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 20.0, right: 16.0,
+                      bottom: 20.0),
+                  child: Theme(
+                    data: new ThemeData(
+                      primaryColor: _color,
+                    ),
+                    child: TextFormField(
+                      style: TextStyle(fontSize: 18.0, color: Colors.black),
+                      textCapitalization: TextCapitalization.sentences,
+                      maxLines: 2,
+                      decoration: InputDecoration(
+                          labelText: "SUBTITLE",
+                          border: OutlineInputBorder(),
+                          hintStyle: TextStyle(color: Colors.deepPurple)
+
+                      ),
+                    ),
+                  )
+
+              )
+            ],
+          ),
+        ],
       )
     );
   }
@@ -86,6 +131,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.build)
           ),
         ),
@@ -98,6 +144,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.wb_incandescent)
           ),
         ),
@@ -110,6 +157,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.laptop_mac)
           ),
         ),
@@ -122,6 +170,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.alarm)
           ),
         ),
@@ -134,6 +183,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.call)
           ),
         ),
@@ -146,6 +196,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.home)
           ),
         ),
@@ -158,6 +209,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.audiotrack)
           ),
         ),
@@ -170,6 +222,7 @@ class _IdeasListState extends State<IdeasList> {
             });
           },
           child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
               child: Icon(Icons.done_all)
           ),
         ),
