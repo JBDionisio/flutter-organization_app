@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organization_app/Model/Idea.dart';
 import 'package:organization_app/screens/popups/ideasList.dart';
 
 class Home extends StatefulWidget {
@@ -45,13 +46,16 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _openAddNewIdea() {
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
+  void _openAddNewIdea() async {
+    Idea _idea = await Navigator.of(context).push(new MaterialPageRoute<Idea>(
         builder: (BuildContext context) {
           return new IdeasList();
         },
         fullscreenDialog: true
     ));
+    if (_idea != null) {
+      //TODO: save
+    }
   }
 
   Widget _buildFloatingButton() {

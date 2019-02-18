@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organization_app/Model/Idea.dart';
 
 class IdeasList extends StatefulWidget {
   @override
@@ -9,6 +10,15 @@ class _IdeasListState extends State<IdeasList> {
 
   Color _color = Colors.blue[700];
   IconData _icon = Icons.wb_incandescent;
+  final _titleController = TextEditingController();
+  final _subTitleController = TextEditingController();
+
+  Idea _buildIdea() {
+    Idea _idea = new Idea(_titleController.text, _subTitleController.text,
+        _color, _icon);
+
+    return _idea;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +32,7 @@ class _IdeasListState extends State<IdeasList> {
               onPressed: () {
                 Navigator
                     .of(context)
-                    .pop();
+                    .pop(_buildIdea());
               },
               child: new Text('SAVE',
                   style: Theme
@@ -41,7 +51,6 @@ class _IdeasListState extends State<IdeasList> {
               new Container(
                 padding: EdgeInsets.only(left: 40.0, right:40.0,
                     bottom: 20.0, top: 50.0),
-                //color: Colors.black,
                 child: Center(
                   child: CircleAvatar(
                     radius: 30.0,
@@ -82,17 +91,16 @@ class _IdeasListState extends State<IdeasList> {
                     child: TextFormField(
                       style: TextStyle(fontSize: 18.0, color: Colors.black),
                       textCapitalization: TextCapitalization.sentences,
+                      controller: _titleController,
                       decoration: InputDecoration(
                           labelText: "TITLE",
                           border: OutlineInputBorder(),
-                          hintStyle: TextStyle(color: Colors.deepPurple)
-
                       ),
                     ),
                   )
 
               ),
-              Container(
+              Container (
                   padding: EdgeInsets.only(left: 20.0, right: 16.0,
                       bottom: 20.0),
                   child: Theme(
@@ -103,10 +111,10 @@ class _IdeasListState extends State<IdeasList> {
                       style: TextStyle(fontSize: 18.0, color: Colors.black),
                       textCapitalization: TextCapitalization.sentences,
                       maxLines: 2,
+                      controller: _subTitleController,
                       decoration: InputDecoration(
                           labelText: "SUBTITLE",
                           border: OutlineInputBorder(),
-                          hintStyle: TextStyle(color: Colors.deepPurple)
 
                       ),
                     ),
